@@ -11,8 +11,7 @@
     <groupId>com.mytests.spring</groupId>
     <artifactId>spring-jpa-smoke</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>java-jpa-web</name>
-    <description>java-jpa-web</description>
+
     <properties>
         <java.version>17</java.version>
     </properties>
