@@ -1,11 +1,14 @@
 package com.mytests.spring.javajpaweb.addresses;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "address", schema = "foo")
 public class Address {
-    @Id
+    @Id @GeneratedValue
     private Integer id;
 
     String city, street, zipcode;
@@ -34,11 +37,16 @@ public class Address {
         this.zipcode = zipcode;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Integer getId() {
         return id;
+    }
+
+    public Address(String city, String street, String zipcode) {
+        this.city = city;
+        this.street = street;
+        this.zipcode = zipcode;
+    }
+
+    public Address() {
     }
 }

@@ -16,4 +16,5 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
     List<Person> personByName(String name);
     @Query("select e from #{#entityName} e where e.name not like :name")
     List<Person> someQustomQuery(String name);
+    Person findFirstByNameAndSurnameOrIdAfter(String name, String surname, Integer idAfter);
 }
