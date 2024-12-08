@@ -1,5 +1,6 @@
 package com.mytests.spring.javajpaweb.teams;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,5 +32,10 @@ public class TeamController {
     @GetMapping("/test2")
     public List<ConcreteEntity> test2() {
         return teamRepository.findByTitles("team1");
+    }
+
+    @GetMapping("/test3")
+    public List<ConcreteEntity> test3() {
+        return teamRepository.customNativeQueryAnnotation(8);
     }
 }
