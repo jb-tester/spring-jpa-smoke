@@ -1,5 +1,6 @@
 package com.mytests.spring.javajpaweb.persons;
 
+import org.springframework.data.jpa.repository.NativeQuery;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -17,4 +18,10 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
     @Query("select e from #{#entityName} e where e.name not like :name")
     List<Person> someQustomQuery(String name);
     Person findFirstByNameAndSurnameOrIdAfter(String name, String surname, Integer idAfter);
+
+    @ModifyingTransactional
+    @Query("update Person set surname = :newFamilyName where id = :id")
+    void updatePersons(int id, String newFamilyName);
+
+
 }
