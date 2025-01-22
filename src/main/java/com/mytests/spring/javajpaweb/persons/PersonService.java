@@ -1,6 +1,7 @@
 package com.mytests.spring.javajpaweb.persons;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ public class PersonService {
         this.utilsBean = utilsBean;
     }
 
-    public List<String> getAllPersonNames(){
+    public List<String> getAllPersonNames() {
         List<String> names = new ArrayList<>();
         names.add(utilsBean.getGreeting());
         for (PersonFullNames personFullNames : personRepository.findAllBy()) {
@@ -26,7 +27,20 @@ public class PersonService {
 
     public List<String> testEntityNameSpEL() {
         List<String> entries = new ArrayList<>();
-        personRepository.someQustomQuery("maria").iterator().forEachRemaining(person -> {entries.add(person.toString());});
+        personRepository.someQustomQuery("maria").iterator().forEachRemaining(person -> {
+            entries.add(person.toString());
+        });
         return entries;
     }
+
+   @Transactional
+    public List<String> updatePerson(int id, String newFamilyName) {
+        List<String> entries = new ArrayList<>();
+        personRepository.updatePersons(id, newFamilyName);
+        personRepository.findAll().iterator().forEachRemaining(person -> {
+            entries.add(person.toString());
+        });
+        return entries;
+    }
+
 }
