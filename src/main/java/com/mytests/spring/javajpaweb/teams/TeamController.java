@@ -23,18 +23,18 @@ public class TeamController {
         this.teamRepository = teamRepository;
     }
 
-    @GetMapping("/test1")
+    @GetMapping("/customeQueryWithSpEL")
     public List<String> test1() {
 
         return teamRepository.customQueryWithSpEL(1);
     }
 
-    @GetMapping("/test2")
+    @GetMapping("/findByTitle")
     public List<ConcreteEntity> test2() {
         return teamRepository.findByTitles("team1");
     }
 
-    @GetMapping("/test3")
+    @GetMapping("/nativeQueryTest")
     public List<ConcreteEntity> test3() {
         return teamRepository.customNativeQueryAnnotation(8);
     }

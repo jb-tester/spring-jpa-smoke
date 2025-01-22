@@ -18,12 +18,12 @@ public class PersonController {
         this.personService = personService;
     }
 
-    @GetMapping("/test1")
+    @GetMapping("/getPersonNames")
     public List<String> test1() {
         return personService.getAllPersonNames();
     }
 
-    @GetMapping("/test3")
+    @GetMapping("/testEntityNameSpEL")
     public List<String> test2() {
         return personService.testEntityNameSpEL();
     }
