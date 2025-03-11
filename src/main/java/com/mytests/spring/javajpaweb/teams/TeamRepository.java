@@ -21,7 +21,10 @@ public interface TeamRepository extends MyBaseEntityRepository<ConcreteEntity> {
     @Query("select title from team  where id = :arg")
     List<String> customQueryWithHardcodedEntityName(@Param("arg") int arg);
 
-    @Query("select e.title from team e where e.id = :arg")
+    @Query("""
+            select e.title
+             from team e
+             where e.id = :arg""")
     List<String> customQueryWithHardcodedEntityNameWithAlias(@Param("arg") int arg);
 
     @Query(value="select * from foo.team where size > :arg", nativeQuery = true)
