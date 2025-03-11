@@ -28,6 +28,6 @@ public class AddressController {
     }
     @GetMapping("/all/{city}")
     public List<Address> getAddressesByCity(@PathVariable String city) {
-        return addressRepository.getAllAddressesByTitle(city);
+        return addressRepository.getAllAddressesByCityName(city);
     }
 }

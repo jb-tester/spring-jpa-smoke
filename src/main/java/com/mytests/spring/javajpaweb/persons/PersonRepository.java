@@ -15,12 +15,16 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
     List<PersonFullNames> findAllBy();
     List<PersonNameOnly> findPeopleBy();
     List<Person> personByName(String name);
-    @Query("select e from #{#entityName} e where e.name not like :name")
+    @Query("""
+            select e
+             from #{#entityName} e
+            where e.name not like :name
+            """)
     List<Person> someQustomQuery(String name);
     Person findFirstByNameAndSurnameOrIdAfter(String name, String surname, Integer idAfter);
 
     @ModifyingTransactional
-    @Query("update Person set surname = :newFamilyName where id = :id")
+    @Query("update #{#entityName} set surname = :newFamilyName where id = :id")
     void updatePersons(int id, String newFamilyName);
 
 
