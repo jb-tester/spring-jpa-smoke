@@ -23,6 +23,7 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
     List<Person> someQustomQuery(String name);
     Person findFirstByNameAndSurnameOrIdAfter(String name, String surname, Integer idAfter);
 
+    // not resolved columns - https://youtrack.jetbrains.com/issue/IDEA-366482
     @ModifyingTransactional
     @Query("update #{#entityName} set surname = :newFamilyName where id = :id")
     void updatePersons(int id, String newFamilyName);
