@@ -15,7 +15,7 @@ GET http://localhost:8081/getPersonNames
 GET http://localhost:8081/testEntityNameSpEL
 
 ###
-GET http://localhost:8081/updatePerson/5
+GET http://localhost:8081/updatePerson/3
 
 ###
 GET http://localhost:8081/team/customeQueryWithSpEL

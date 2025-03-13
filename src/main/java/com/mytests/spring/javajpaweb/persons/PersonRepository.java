@@ -1,6 +1,5 @@
 package com.mytests.spring.javajpaweb.persons;
 
-import org.springframework.data.jpa.repository.NativeQuery;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -20,7 +19,7 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
              from #{#entityName} e
             where e.name not like :name
             """)
-    List<Person> someQustomQuery(String name);
+    List<Person> someCustomQuery(String name);
     Person findFirstByNameAndSurnameOrIdAfter(String name, String surname, Integer idAfter);
 
     // not resolved columns - https://youtrack.jetbrains.com/issue/IDEA-366482

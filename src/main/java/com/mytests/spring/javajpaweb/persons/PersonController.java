@@ -30,6 +30,7 @@ public class PersonController {
 
     @GetMapping("/updatePerson/{id:\\d}")
     public List<String> updatePerson(@PathVariable("id") String id) {
-        return personService.updatePerson(Integer.parseInt(id),"pupko");
+        List<String> person = personService.updatePerson(Integer.parseInt(id), "pupko");
+        return person;
     }
 }

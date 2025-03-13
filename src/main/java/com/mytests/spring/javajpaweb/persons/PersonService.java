@@ -27,7 +27,7 @@ public class PersonService {
 
     public List<String> testEntityNameSpEL() {
         List<String> entries = new ArrayList<>();
-        personRepository.someQustomQuery("maria").iterator().forEachRemaining(person -> {
+        personRepository.someCustomQuery("maria").iterator().forEachRemaining(person -> {
             entries.add(person.toString());
         });
         return entries;
@@ -37,7 +37,8 @@ public class PersonService {
     public List<String> updatePerson(int id, String newFamilyName) {
         List<String> entries = new ArrayList<>();
         personRepository.updatePersons(id, newFamilyName);
-        personRepository.findAll().iterator().forEachRemaining(person -> {
+       List<Person> people = personRepository.findAll();
+       people.iterator().forEachRemaining(person -> {
             entries.add(person.toString());
         });
         return entries;
