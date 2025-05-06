@@ -1,27 +1,27 @@
 ###
-POST http://localhost:8081/address/add/aaa-bbb-12345
+POST http://localhost:8082/address/add/aaa-bbb-12345
 Content-Type: application/x-www-form-urlencoded
 
 ###
-GET http://localhost:8081/address/all
+GET http://localhost:8082/address/all
 
 ###
-GET http://localhost:8081/address/all/prague
+GET http://localhost:8082/address/all/prague
 
 ###
-GET http://localhost:8081/getPersonNames
+GET http://localhost:8082/getPersonNames
 
 ###
-GET http://localhost:8081/testEntityNameSpEL
+GET http://localhost:8082/testEntityNameSpEL
 
 ###
-GET http://localhost:8081/updatePerson/3
+GET http://localhost:8082/updatePerson/3
 
 ###
-GET http://localhost:8081/team/customeQueryWithSpEL
+GET http://localhost:8082/team/customeQueryWithSpEL
 
 ###
-GET http://localhost:8081/team/findByTitle
+GET http://localhost:8082/team/findByTitle
 
 ###
 GET http://localhost:8081/team/nativeQueryTest

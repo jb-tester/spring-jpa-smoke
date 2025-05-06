@@ -25,7 +25,7 @@ public class AddressRepository {
     public List<Address> collectAllAddresses() {
         String entity = "Address";
         String alias = "a";
-        return em.createQuery("select " + alias + " from " + entity + alias, Address.class).getResultList();
+        return em.createQuery("select " + alias + " from " + entity + " " + alias, Address.class).getResultList();
     }
 
     public List<Address> getAllAddressesByZipCode(String zipcode) {
