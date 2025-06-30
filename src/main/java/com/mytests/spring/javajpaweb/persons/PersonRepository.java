@@ -27,5 +27,6 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
     @Query("update #{#entityName} set surname = :newFamilyName where id = :id")
     void updatePersons(int id, String newFamilyName);
 
-
+    List<Person> findBySurnameIn(String... surnames);
+    List<Person> findBySurnameIsIn(String[] surnames);
 }
