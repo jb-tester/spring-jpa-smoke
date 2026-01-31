@@ -14,8 +14,8 @@ public class AddressRepository {
             select a
              from Address a
              where a.city like :arg""";
-    final
-    EntityManager em;
+
+    final EntityManager em;
 
 
     public AddressRepository(EntityManager em) {
@@ -47,4 +47,28 @@ public class AddressRepository {
     public void addNewAddress(Address address) {
         em.persist(address);
     }
+
+    @Transactional
+    public void mergeAddress(Address address) {
+        em.merge(address);
+
+    }
+
+    @Transactional
+    public Address updateAddress(int id) {
+        Address address= (Address)em.find(Address.class , id);
+        address.setCity("london");
+        em.flush();
+        em.refresh(address);
+        em.createQuery("update Address set zipcode = '12345', street = 'london street' where id=?1")
+                .setParameter(1, id)
+                .executeUpdate();
+        em.flush();
+        em.refresh(address);
+        address = em.find(Address.class, id);
+
+        System.out.println(address);
+        return address;
+    }
+
 }

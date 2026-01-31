@@ -30,4 +30,12 @@ public class AddressController {
     public List<Address> getAddressesByCity(@PathVariable String city) {
         return addressRepository.getAllAddressesByCityName(city);
     }
+
+    @GetMapping("/update")
+    public Address update() {
+        addressRepository.mergeAddress(new Address("???", "???", "???"));
+        int id = addressRepository.getAllAddressesByCityName("???").get(0).getId();
+        Address a = addressRepository.updateAddress(id);
+        return a;
+    }
 }
