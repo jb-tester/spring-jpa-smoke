@@ -3,7 +3,7 @@ package com.mytests.spring.javajpaweb.persons;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "person", schema = "foo")
+@Table(name = "person")
 @NamedQuery(name = "Person.personByName", query = "select p.id, p.surname from Person p where p.name = ?1")
 public class Person {
     @Id

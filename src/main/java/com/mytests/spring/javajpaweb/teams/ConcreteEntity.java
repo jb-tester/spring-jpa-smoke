@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity(name = "team")
-@Table(schema = "foo")
+@Table(name = "team")
 public class ConcreteEntity extends MyBaseEntity {
 
     String description;

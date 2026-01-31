@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "address", schema = "foo")
+@Table(name = "address")
 public class Address {
     @Id @GeneratedValue
     private Integer id;
@@ -48,5 +48,15 @@ public class Address {
     }
 
     public Address() {
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+               "id=" + id +
+               ", city='" + city + '\'' +
+               ", street='" + street + '\'' +
+               ", zipcode='" + zipcode + '\'' +
+               '}';
     }
 }

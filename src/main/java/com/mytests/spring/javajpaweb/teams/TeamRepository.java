@@ -27,11 +27,11 @@ public interface TeamRepository extends MyBaseEntityRepository<ConcreteEntity> {
              where e.id = :arg""")
     List<String> customQueryWithHardcodedEntityNameWithAlias(@Param("arg") int arg);
 
-    @Query(value="select * from foo.team where size > :arg", nativeQuery = true)
+    @Query(value="select * from team where size > :arg", nativeQuery = true)
     List<ConcreteEntity> customNativeQuery(@Param("arg") int arg);
 
     // https://youtrack.jetbrains.com/issue/IDEA-364397/Spring-Data-NativeQuery-syntax-support
-    @NativeQuery(value="select * from foo.team where size = :arg")
+    @NativeQuery(value="select * from team where size = :arg")
     List<ConcreteEntity> customNativeQueryAnnotation(@Param("arg") int arg);
 
 
