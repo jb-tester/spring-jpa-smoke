@@ -1,3 +1,17 @@
+###all customers
+GET http://localhost:8082/customers/all
+
+###add customer
+GET http://localhost:8082/customers/add1/vasya
+
+###add customer 2
+GET http://localhost:8082/customers/add2/valya
+
+###update customer email
+GET http://localhost:8082/customers/update/gmail
+
+###update again
+GET http://localhost:8082/customers/update/updated
 
 ###add new address
 POST http://localhost:8082/address/add/prague-u%20zatisi%201-14700
