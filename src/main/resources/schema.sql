@@ -22,7 +22,5 @@ create table if not exists address(
 create table if not exists customer(
                                           id UUID NOT NULL DEFAULT RANDOM_UUID(),
                                           name VARCHAR(50),
-                                          email VARCHAR(50),
-                                          lastModifiedDate DATE,
-                                          createdDate DATE
+                                          email VARCHAR(50)
 );
