@@ -14,6 +14,7 @@ public interface PersonRepository extends CrudRepository<Person, Integer> {
     List<PersonFullNames> findAllBy();
     List<PersonNameOnly> findPeopleBy();
     List<Person> personByName(String name);
+    List<Person> nativeByName(String name);
     @Query("""
             select e
              from #{#entityName} e
